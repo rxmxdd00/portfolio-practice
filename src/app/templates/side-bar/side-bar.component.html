@@ -1,0 +1,50 @@
+<div class="flex h-screen">
+    <!-- Sidebar -->
+    <div class="w-16 bg-gray-800 text-white p-4 w-[250px] rounded-xl">
+        <mat-toolbar class="no-bg">
+            <mat-toolbar-row>
+                <div fxFlex="25%" class="text-left">
+                    <!-- <img src="assets/img/icons/back.svg" (click)="isMobileState ? hideSidebar() : onMinimize(true)" title="Minimize Sidebar" class="mini-sidebar-control cursor-pointer" alt=""> -->
+                    <mat-icon class="mini-sidebar-btn" style="margin: 0 auto; color:white" title="Minimize Sidebar" class="mini-sidebar-control cursor-pointer" alt="">reorder</mat-icon> 
+                </div>
+            </mat-toolbar-row>
+            <mat-toolbar-row class="bg-gray-800">
+                <div class="m-auto">
+                    <div class="flex justify-center w-full">
+                        <img class="h-[90px]" src="../../../assets/img/icons/ic_user-regular.svg" alt="">
+                    </div>
+                    <div class="flex justify-center pt-2">
+                        <span class="text-white text-sm"><i>ADMIN</i></span>
+                    </div>
+                    <div class="flex justify-center">
+                        <span class="text-white text-[14px]">ACCOUNT NAME</span>
+                    </div>
+                </div>
+            </mat-toolbar-row>
+            <mat-toolbar-row>
+                <div class="h-[20px] w-full"><hr></div>
+            </mat-toolbar-row>
+            <mat-toolbar-row class="bg-gray-800 border-0">
+                <div class="w-full">
+                   <a [routerLink]="'/dashboard/home'" class="block text-center text-white text-[14px] hover:bg-gray-700 rounded-full">
+                        Home
+                   </a>
+                </div>
+           </mat-toolbar-row>
+           <mat-toolbar-row class="bg-gray-800 border-0">
+                <div class="w-full">
+                    <a [routerLink]="'/dashboard/task-list'" class="block text-center text-white text-[14px] hover:bg-gray-700 rounded-xl">
+                            Task Management
+                    </a>
+                </div>
+            </mat-toolbar-row>
+            <mat-toolbar-row class="bg-gray-800 border-0">
+                <div class="w-full">
+                    <a [routerLink]="'/'" class="block text-center text-white text-[14px] hover:bg-gray-700 rounded-xl">
+                            Logout
+                    </a>
+                </div>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    </div>
+</div>

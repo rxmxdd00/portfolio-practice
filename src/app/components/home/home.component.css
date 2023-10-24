@@ -1,0 +1,23 @@
+/* .container {
+    position: relative;
+    width: 100%;
+    height: 90px;
+    overflow: hidden;
+   }
+   
+   .curve {
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 50%, #FFDCAD 50%);
+    transform: rotate(-90deg);
+   }
+
+   .footer-curve {
+    position: absolute;
+    text-align: center;
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 50%, #FFDCAD 50%);
+    transform: rotate(90deg);
+   } */

@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #262626;}
+
+
+.no-outline {
+    outline: none !important;
+}
+.mat-toolbar-row, .mat-toolbar-single-row {
+    height: auto !important;
+}
+
+/* HEADER  */
+.mat-toolbar.mat-toolbar-header.expanded {
+    height: 260px;
+    align-items: initial;
+    padding-top: 10px;
+    /* transition: all .3s; */
+}
+.no-bg {
+    background: transparent !important;
+}
