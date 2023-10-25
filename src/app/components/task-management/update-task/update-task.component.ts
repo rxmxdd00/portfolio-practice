@@ -20,25 +20,36 @@ export class UpdateTaskComponent implements OnInit{
       title : new FormControl(null, [Validators.required]),
       description : new FormControl(null, [Validators.required]),
     });
+
+    if(this.data.dialog_type == "UPDATE") {
+      this.tutorialsForm = new FormGroup ({
+        title : new FormControl(this.data.task.title, [Validators.required]),
+        description : new FormControl(this.data.task.description, [Validators.required]),
+        published : new FormControl(this.data.task.published, [Validators.required]),
+      });
+    }
+    console.log(this.data)
   }
 
   confirmResult(result :any): void {
     if (result) {
-      console.log(result);
+     this.update();
     } else {
       this.dialogRef.close(result);
     }
   }
 
-  add(){
+  update(){
+    const id = this.data.task.id;
     const data = {
       title: this.tutorialsForm.value.title,
-      description : this.tutorialsForm.value.description
+      description : this.tutorialsForm.value.description,
+      published : this.tutorialsForm.value.published
     };
-
-    this.ecommerce.create(data).subscribe(
+    console.log(data);
+    this.ecommerce.update(id, data).subscribe(
       res => {
-        console.log(res);
+        this.dialogRef.close(res);
       }, error => {
         console.log(error);
       }

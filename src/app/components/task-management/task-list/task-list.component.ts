@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 import { AddTaskComponent } from '../add-task/add-task.component';
 import { DeleteTaskComponent } from '../delete-task/delete-task.component';
@@ -14,12 +14,13 @@ import { UpdateTaskComponent } from '../update-task/update-task.component';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit{
+  @ViewChild('searchInput') elementRef: ElementRef | undefined;
   task : Task []= [];
   activePanelIndex: number = -1; // Initialize to -1 to start with no highlighted panel
-
+  isTiles = false; // for switch view
   public displayedColumns = ['id', 'title', 'description', 'published', 'action'];
 
-  public dataSource = new MatTableDataSource<Task>();
+  public dataSource = new MatTableDataSource<any>();
 
   constructor(private ecommerceService : EcommerceService, public dialog: MatDialog,) {}
 
@@ -27,6 +28,9 @@ export class TaskListComponent implements OnInit{
       this.getTaskList ();
   }
 
+  isTilesView () {
+    this.isTiles ? this.isTiles = false : this.isTiles = true;
+  }
   getTaskList () {
     this.ecommerceService.get().subscribe(
       res => {
@@ -40,21 +44,21 @@ export class TaskListComponent implements OnInit{
   }
 
 
-  openUpdateDialog() {
+  openUpdateDialog(task: any) {
     const dialogRef = this.dialog.open(UpdateTaskComponent, {
       width: '450px',
       disableClose: true,
       maxWidth: '90vw',
-      maxHeight: '95vh',
       data: {
-        dialog_type: 'UPDATE', title: 'UPDATE TASK',
+        dialog_type: 'UPDATE', title: 'UPDATE TASK', task
       }
     });
     dialogRef.afterClosed().subscribe(res => {
-      if (res.result === true) {
+      if (res) {
         // refresh list
-        console.log(res)
-      } else if (res.result === false) {
+        this.getTaskList();
+        console.log(res);
+      } else if (res) {
         console.log(res)
       }
     });
@@ -99,5 +103,27 @@ export class TaskListComponent implements OnInit{
         console.log(res)
       }
     });
+  }
+
+  searchDatas(stringSearch : any) {
+    if(stringSearch) {
+      let datas = this.dataSource.data;
+      const data = datas.filter(
+        res => res.title.toLowerCase().includes(stringSearch.toLowerCase())
+      );
+      if(data) {
+        this.dataSource.data = data;
+        this.task = data;
+      }
+    } else {
+      this.getTaskList();
+    }
+  }
+
+  refresh() {
+    this.getTaskList();
+    if (this.elementRef) {
+      this.elementRef.nativeElement.value = '';
+    }
   }
 }

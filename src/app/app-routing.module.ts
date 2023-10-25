@@ -29,21 +29,22 @@ const routes: Routes = [
   },
   { path : 'home', component : HomeComponent},
   {
+    path: 'task-list',
+    data: {
+      title: 'task-list',
+    },
+    // canActivate: [AuthGuard],
+    component: TaskListComponent
+  },
+  
+  {
     path: 'dashboard',
     data: {
       title: 'dashboard',
     },  
     component: DashboardsComponent,
     children : [
-      { path:'', redirectTo : '/dashboard/task-list', pathMatch: 'full'},
-      {
-        path: 'task-list',
-        data: {
-          title: 'task-list',
-        },
-        // canActivate: [AuthGuard],
-        component: TaskListComponent
-      },
+      { path:'', redirectTo : '/dashboard', pathMatch: 'full'},
       {
         path: 'task-update/:id',
         data: {
