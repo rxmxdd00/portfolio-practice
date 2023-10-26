@@ -1,6 +1,5 @@
 module.exports = app => {
     const ecommerce = require("../controllers/ecommerce.controller.js");
-
     var router = require("express").Router();
 
     router.post("/create", ecommerce.create);
@@ -14,4 +13,5 @@ module.exports = app => {
     router.delete("/delete/:id", ecommerce.delete);
 
     app.use("/api/ecommerce", router);
+   
 }

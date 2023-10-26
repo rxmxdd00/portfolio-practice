@@ -27,6 +27,7 @@ import { SideBarComponent } from './templates/side-bar/side-bar.component';
 import { SignUpComponent } from './accounts/sign-up/sign-up.component';
 import { TaskListComponent } from './components/task-management/task-list/task-list.component';
 import { UpdateTaskComponent } from './components/task-management/update-task/update-task.component';
+import { LoginResultsComponent } from './accounts/login-results/login-results.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { UpdateTaskComponent } from './components/task-management/update-task/up
     DeleteTaskComponent,
     TaskListComponent,
     SideBarComponent,
-    DashboardsComponent
+    DashboardsComponent,
+    LoginResultsComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { EcommerceService } from 'src/app/services/ecommerce.service';
 import { HttpClient } from '@angular/common/http';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,8 @@ import { HttpClient } from '@angular/common/http';
 export class HomeComponent implements OnInit {
   tutorialsForm!: FormGroup;
 
-  constructor(private http: HttpClient, private ecommerce:EcommerceService){
+  constructor(private http: HttpClient, private ecommerce:EcommerceService,
+    private usersService:UsersService){
     this.tutorialsForm = new FormGroup ({
       title : new FormControl(null, [Validators.required]),
       description : new FormControl(null, [Validators.required]),
@@ -20,8 +22,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.get();
-      this.getOne();
   }
 
   add(){
@@ -56,6 +56,20 @@ export class HomeComponent implements OnInit {
         console.log(res);
       }, error => {
         console.log(error);
+      }
+    )
+  }
+
+  createUser () {
+    const  data = {
+      firstName : 'Med',
+      lastName : 'Albania',
+      email : 'med@albania.com',
+      password: '12345'
+    }
+    this.usersService.create(data).subscribe(
+      res => {
+        console.log(res);
       }
     )
   }

@@ -7,5 +7,5 @@ const db = {};
 db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.Ecommerce = require("./ecommerce.model.js")(mongoose);
-
+db.Users = require ("./users.model.js")(mongoose);
 module.exports = db;

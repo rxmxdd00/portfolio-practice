@@ -23,27 +23,14 @@ db.mongoose
 
     //simple route
     app.get("/", (req, res)=>{
-        res.json({ message : "Welcome to Ecommerce Application"});
+        res.json({ message : "Welcome to Portfolio Application"});
     });
 
     require("./server/routes/ecommerce.routes")(app);
-
+    require("./server/routes/users.routes")(app);
     //set port, listen for request
     const PORT = process.env.PORT || 8080;
     app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}.`);
     });
-// mongoose.connect("mongodb://localhost:27017/ecommercedb", {useNewUrlParser: true, useUnifiedTopology: true}, function checkDB(error){
-//     if(error) {
-//         console.log(error)
-//     } else {
-//         console.log("db connected successfuly")
-//     }
-// }); 
-// app.listen(5038, function port(error){
-//     if(error) {
-//         console.log('Failed');
-//     } else {
-//         console.log('Success');
-//     }
-// });
+
