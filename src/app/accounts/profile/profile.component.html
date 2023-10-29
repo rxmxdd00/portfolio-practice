@@ -1,0 +1,18 @@
+<div>
+    <app-header
+    [title]="'Account Profile'"
+    [isSubOf]="{name: 'Account', link:'/dashboard'}"
+    [hasRefreshBtn]="true"
+    [hasSearchBar]="true"
+    (refresh)="refresh()"
+    (search)="search($event)"
+    (clear)="clear()"
+    ></app-header>
+
+    <!-- Search Section -->
+    <div>
+        <app-select
+        [title]="'Sort By: '"
+        [options]="selOptions"></app-select>
+    </div>
+</div>

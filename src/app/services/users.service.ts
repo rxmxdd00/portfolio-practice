@@ -1,6 +1,7 @@
+import { Observable, Subject } from 'rxjs';
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
 const baseUrl = "http://localhost:8080/api/";
 
@@ -8,6 +9,9 @@ const baseUrl = "http://localhost:8080/api/";
   providedIn: 'root'
 })
 export class UsersService {
+  public userInfo = new Subject<any>();
+  public dashboardSelected = new Subject<any>();
+
   constructor(private http: HttpClient) { }
 
   create(data : any) : Observable<any> {

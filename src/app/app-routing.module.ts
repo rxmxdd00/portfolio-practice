@@ -5,6 +5,7 @@ import { DeleteTaskComponent } from './components/task-management/delete-task/de
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './accounts/login/login.component';
 import { NgModule } from '@angular/core';
+import { ProfileComponent } from './accounts/profile/profile.component';
 import { SignUpComponent } from './accounts/sign-up/sign-up.component';
 import { TaskListComponent } from './components/task-management/task-list/task-list.component';
 import { UpdateTaskComponent } from './components/task-management/update-task/update-task.component';
@@ -44,14 +45,20 @@ const routes: Routes = [
     },  
     component: DashboardsComponent,
     children : [
-      { path:'', redirectTo : '/dashboard', pathMatch: 'full'},
-      {
-        path: 'task-update/:id',
+      { 
+        path:'', pathMatch: 'full',
+        redirectTo: 'account-profile',
         data: {
-          title: 'task-update',
+          title: 'dashboard',
+        },
+      },
+      {
+        path: 'account-profile',
+        data: {
+          title: 'Account Profile',
         },
         // canActivate: [AuthGuard],
-        component: UpdateTaskComponent
+        component: ProfileComponent
       },
       {
         path: 'task-delete/:id',

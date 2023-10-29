@@ -1,6 +1,6 @@
 <div class="flex h-screen">
     <!-- Sidebar -->
-    <div class="w-16 bg-gray-800 text-white p-4 w-[250px] rounded-xl">
+    <div class="w-16 bg-[#E7B5AC] p-4 w-[250px] rounded-xl md:hidden lg:block opacity-90">
         <mat-toolbar class="no-bg">
             <mat-toolbar-row>
                 <div fxFlex="25%" class="text-left">
@@ -8,43 +8,58 @@
                     <mat-icon class="mini-sidebar-btn" style="margin: 0 auto; color:white" title="Minimize Sidebar" class="mini-sidebar-control cursor-pointer" alt="">reorder</mat-icon> 
                 </div>
             </mat-toolbar-row>
-            <mat-toolbar-row class="bg-gray-800">
+            <mat-toolbar-row>
                 <div class="m-auto">
                     <div class="flex justify-center w-full">
                         <img class="h-[90px]" src="../../../assets/img/icons/ic_user-regular.svg" alt="">
                     </div>
                     <div class="flex justify-center pt-2">
-                        <span class="text-white text-sm"><i>ADMIN</i></span>
+                        <span class="text-[#BB6765] text-sm"><i>ADMIN</i></span>
                     </div>
                     <div class="flex justify-center">
-                        <span class="text-white text-[14px]">ACCOUNT NAME</span>
+                        <span class="text-[#BB6765] text-[14px]">{{userInfo.firstName+' '+userInfo.lastName}}</span>
                     </div>
                 </div>
             </mat-toolbar-row>
             <mat-toolbar-row>
                 <div class="h-[20px] w-full"><hr></div>
             </mat-toolbar-row>
-            <mat-toolbar-row class="bg-gray-800 border-0">
+            <mat-toolbar-row class="">
                 <div class="w-full">
-                   <a [routerLink]="'/dashboard/home'" class="block text-center text-white text-[14px] hover:bg-gray-700 rounded-full">
-                        Home
+                   <a [routerLink]="'/account-profile'" routerLinkActive="active" class="block text-center text-[#BB6765] text-[14px] hover:bg-[#F5C9C6] rounded-full">
+                    <div class="flex p-2">
+                        <img class="w-[30px] pr-2" src="../../../assets/img/icons/ic_avatar.svg" alt="">
+                        <span class="font-mono md:text-base lg: text-lg xl:text-xl">Profile</span>
+                    </div>  
                    </a>
                 </div>
            </mat-toolbar-row>
-           <mat-toolbar-row class="bg-gray-800 border-0">
+           <mat-toolbar-row class="">
                 <div class="w-full">
-                    <a [routerLink]="'/dashboard/task-list'" class="block text-center text-white text-[14px] hover:bg-gray-700 rounded-xl">
-                            Task Management
+                    <a [routerLink]="'/dashboard/task-list'" routerLinkActive="active" class="block text-center text-[#BB6765] text-[14px] hover:bg-[#F5C9C6] rounded-xl">
+                        <div class="flex p-2">
+                            <img class="w-[30px] pr-2" src="../../../assets/img/icons/ic_settings.svg" alt="">
+                            <span class="font-mono md:text-base lg: text-lg xl:text-xl">Settings</span>
+                        </div>    
                     </a>
                 </div>
             </mat-toolbar-row>
-            <mat-toolbar-row class="bg-gray-800 border-0">
+            <mat-toolbar-row class="">
                 <div class="w-full">
-                    <a [routerLink]="'/'" class="block text-center text-white text-[14px] hover:bg-gray-700 rounded-xl">
-                            Logout
+                    <a [routerLink]="'/'" class="block text-center text-[#BB6765] text-[14px] hover:bg-[#F5C9C6] rounded-xl">
+                        <div class="flex p-2">
+                            <img class="w-[30px] pr-2" src="../../../assets/img/icons/ic_logout.svg" alt="">
+                            <span class="font-mono md:text-base lg: text-lg xl:text-xl">Logout</span>
+                        </div>  
                     </a>
                 </div>
             </mat-toolbar-row>
         </mat-toolbar>
+    </div>
+    <div class="lg:hidden">
+        <div fxFlex="25%" class="text-left">
+            <!-- <img src="assets/img/icons/back.svg" (click)="isMobileState ? hideSidebar() : onMinimize(true)" title="Minimize Sidebar" class="mini-sidebar-control cursor-pointer" alt=""> -->
+            <mat-icon class="mini-sidebar-btn" style="margin: 0 auto; color:white" title="Minimize Sidebar" class="mini-sidebar-control cursor-pointer" alt="">reorder</mat-icon> 
+        </div>
     </div>
 </div>

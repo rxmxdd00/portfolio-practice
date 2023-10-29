@@ -34,7 +34,8 @@ export class LoginComponent {
       res => {
         console.log(res);
         if(res.firstName) {
-          this.router.navigate(['/home']);  
+          this.userService.userInfo = res;
+          this.router.navigate(['/dashboard']);  
         } else {
           console.log(res);
           this.openLoginResultDialog(res);

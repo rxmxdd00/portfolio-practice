@@ -7,15 +7,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { DashboardsComponent } from './components/dashboards/dashboards.component';
 import { DeleteTaskComponent } from './components/task-management/delete-task/delete-task.component';
+import { HeaderComponent } from './templates/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './accounts/login/login.component';
+import { LoginResultsComponent } from './accounts/login-results/login-results.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatSortModule} from '@angular/material/sort';
@@ -23,11 +26,12 @@ import {MatTableModule} from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgModule } from '@angular/core';
+import { ProfileComponent } from './accounts/profile/profile.component';
 import { SideBarComponent } from './templates/side-bar/side-bar.component';
 import { SignUpComponent } from './accounts/sign-up/sign-up.component';
 import { TaskListComponent } from './components/task-management/task-list/task-list.component';
 import { UpdateTaskComponent } from './components/task-management/update-task/update-task.component';
-import { LoginResultsComponent } from './accounts/login-results/login-results.component';
+import { SelectComponent } from './templates/select/select.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,10 @@ import { LoginResultsComponent } from './accounts/login-results/login-results.co
     TaskListComponent,
     SideBarComponent,
     DashboardsComponent,
-    LoginResultsComponent
+    LoginResultsComponent,
+    HeaderComponent,
+    ProfileComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +67,8 @@ import { LoginResultsComponent } from './accounts/login-results/login-results.co
     MatIconModule,
     MatSidenavModule,
     MatDialogModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
